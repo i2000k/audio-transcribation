@@ -1,0 +1,3 @@
+*.wav
+vosk-model-ru-0.22/
+media/*.*

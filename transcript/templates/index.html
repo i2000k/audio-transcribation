@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transcribate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Hind+Madurai:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'main.css'%}" />
+  </head>
+  <body>
+    <header>
+      <h1>Audio file Transcribation</h1>
+      <ol>
+        <li>Load audo file using 'Choose File' button</li>
+        <li>Use 'Play' button and audio controls to listen to audo file</li>
+        <li>To transcribate audio file click on 'Transcribate' button</li>
+        <li>Text of audio file will be printed with delay</li>
+      </ol>
+    </header>
+    <hr />
+    <form action="" method="post" id="form">
+      {% csrf_token %}
+      <audio id="audio" controls>
+        <source src="" id="source" />
+      </audio>
+      <input
+        type="file"
+        id="fileInput"
+        onchange="document.getElementById('transcribateBtn').removeAttribute('disabled')"
+      />
+      <button type="submit" id="transcribateBtn" disabled>Transcribate</button>
+    </form>
+    <hr />
+    <div class="text-content">
+      <p id="transcribateText"></p>
+    </div>
+    <footer class="footer"><em>Author: Kirill Shaykin</em></footer>
+    {%load static%}
+    <script src="{%static 'script.js'%}"></script>
+  </body>
+</html>
